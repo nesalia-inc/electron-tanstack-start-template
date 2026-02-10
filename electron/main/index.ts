@@ -3,26 +3,23 @@ import path from 'node:path'
 
 // The built directory structure
 //
-// ├─┬─┬ out
+// ├─┬─┬ dist-electron
 // │ │ ├── main
 // │ │ │   └── index.js
 // │ │ └── preload
-// │ │       └── index.mjs
+// │ │       └── index.js
 // │ │
 // │ ├─┬ dist
 // │ │ └── index.html
 // │
 process.env.DIST = path.join(__dirname, '../dist')
-process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
-  ? path.join(__dirname, '../public')
-  : path.join(__dirname, '../dist/public')
 
 let win: BrowserWindow | null = null
 
-const preload = path.join(__dirname, '../preload/index.mjs')
-const isDev = process.env.NODE_ENV === 'development' || process.env.VITE_DEV_SERVER_URL
-const url = 'http://127.0.0.1:5173'
-const indexHtml = path.join(process.env.DIST, 'index-electron.html')
+const preload = path.join(__dirname, '../preload/index.js')
+const isDev = process.env.NODE_ENV !== 'production'
+const url = 'http://127.0.0.1:5555'
+const indexHtml = path.join(process.env.DIST, 'index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
@@ -45,13 +42,7 @@ async function createWindow() {
   // Development: load from dev server
   // Production: load from built files
   if (isDev) {
-    // Wait a bit for the dev server to be ready
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    win.loadURL(url).catch((err) => {
-      console.error('Failed to load URL:', err)
-      // Fallback to loading the file
-      win?.loadFile(indexHtml)
-    })
+    win.loadURL(url)
   } else {
     win.loadFile(indexHtml)
   }
