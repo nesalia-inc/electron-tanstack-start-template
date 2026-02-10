@@ -1,7 +1,6 @@
 import { resolve } from 'node:path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
-import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 
 export default defineConfig({
   main: {
@@ -21,9 +20,10 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()],
   },
   renderer: {
+    root: resolve(__dirname, '.'),
     build: {
       rollupOptions: {
-        input: resolve(__dirname, 'index.html'),
+        input: resolve(__dirname, 'index-electron.html'),
       },
     },
     resolve: {
@@ -32,9 +32,6 @@ export default defineConfig({
         '@electron': resolve(__dirname, './electron'),
       },
     },
-    plugins: [
-      tanstackStart(),
-      react(),
-    ],
+    plugins: [react()],
   },
 })

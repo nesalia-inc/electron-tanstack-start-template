@@ -19,7 +19,7 @@ let win: BrowserWindow | null = null
 
 const preload = path.join(__dirname, '../preload/index.js')
 const url = process.env.VITE_DEV_SERVER_URL
-const indexHtml = path.join(process.env.DIST, 'index.html')
+const indexHtml = path.join(process.env.DIST, 'index-electron.html')
 
 async function createWindow() {
   win = new BrowserWindow({
