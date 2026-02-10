@@ -2,6 +2,7 @@
   "name": "etst",
   "private": true,
   "type": "module",
+  "main": "dist-electron/main/index.js",
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",
@@ -9,7 +10,10 @@
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
-    "check": "prettier --write . && eslint --fix"
+    "check": "prettier --write . && eslint --fix",
+    "electron:dev": "electron-vite dev",
+    "electron:build": "electron-vite build && electron-builder",
+    "electron:preview": "electron-vite preview"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
