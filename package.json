@@ -1,6 +1,6 @@
 {
   "name": "etst",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern full-stack React template combining TanStack Start for web development with Electron for desktop applications",
   "author": "nesalia-inc",
   "license": "MIT",
