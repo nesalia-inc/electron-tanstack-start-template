@@ -22,6 +22,10 @@
       "output": "release",
       "buildResources": "build"
     },
+    "publish": {
+      "provider": "github",
+      "releaseType": "release"
+    },
     "files": [
       "dist-electron/**/*",
       "dist/**/*",
