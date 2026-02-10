@@ -1,9 +1,7 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider } from '@tanstack/react-router'
-import { getRouter } from './router'
-
-const router = getRouter()
+import { router } from './router'
 
 const rootElement = document.getElementById('root')!
 

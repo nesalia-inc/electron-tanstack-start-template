@@ -1,21 +1,21 @@
 {
   "name": "electron-tanstack-start-template",
   "version": "1.0.3",
-  "description": "A modern full-stack React template combining TanStack Start for web development with Electron for desktop applications",
+  "description": "A modern React template combining TanStack Router for web development with Electron for desktop applications",
   "author": "nesalia-inc",
   "license": "MIT",
   "private": true,
   "type": "module",
   "main": "dist-electron/main.js",
   "scripts": {
-    "dev": "vite dev --port 5555 --host 127.0.0.1",
+    "dev": "vite --port 5555 --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "lint": "eslint",
     "format": "prettier",
     "check": "prettier --write . && eslint --fix",
-    "electron:dev": "vite dev",
+    "electron:dev": "vite --port 5555 --host 127.0.0.1",
     "electron:build": "vite build && electron-builder",
     "electron": "electron ."
   },
@@ -28,7 +28,7 @@
     },
     "files": [
       "dist-electron/**/*",
-      ".output/**/*",
+      "dist/**/*",
       "package.json"
     ],
     "win": {
@@ -79,8 +79,6 @@
     "@tanstack/react-devtools": "^0.7.0",
     "@tanstack/react-router": "^1.132.0",
     "@tanstack/react-router-devtools": "^1.132.0",
-    "@tanstack/react-router-ssr-query": "^1.131.7",
-    "@tanstack/react-start": "^1.132.0",
     "@tanstack/router-plugin": "^1.132.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -90,7 +88,6 @@
     "input-otp": "^1.4.2",
     "lucide-react": "^0.561.0",
     "next-themes": "^0.4.6",
-    "nitro": "npm:nitro-nightly@latest",
     "radix-ui": "^1.4.3",
     "react": "^19.2.0",
     "react-day-picker": "^9.13.2",

@@ -6,24 +6,13 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// The built directory structure
-//
-// ├─┬─┬ dist-electron
-// │ │ ├── main.js
-// │ │ └── preload.js
-// │ │
-// │ ├─┬ .output
-// │ │ └── client
-// │ │     └── index.html
-// │
-process.env.DIST = path.join(__dirname, '../.output/client')
-
 let win: BrowserWindow | null = null
 
 const preload = path.join(__dirname, './preload.js')
-const isDev = process.env.NODE_ENV !== 'production'
-const url = 'http://127.0.0.1:5555'
-const indexHtml = path.join(process.env.DIST, 'index.html')
+// Check if running in development by checking if dev server dependency exists
+const isDev = process.env.NODE_ENV === 'development'
+const devUrl = 'http://127.0.0.1:5555'
+const indexHtml = path.join(__dirname, '../dist/index.html')
 
 async function createWindow() {
   win = new BrowserWindow({
@@ -32,21 +21,18 @@ async function createWindow() {
     height: 800,
     webPreferences: {
       preload,
-      // Disable in production for security
       nodeIntegration: false,
       contextIsolation: true,
     },
   })
 
-  // Open DevTools in development
-  if (isDev) {
-    win.webContents.openDevTools()
-  }
+  // Open DevTools
+  win.webContents.openDevTools()
 
   // Development: load from dev server
   // Production: load from built files
   if (isDev) {
-    win.loadURL(url)
+    win.loadURL(devUrl)
   } else {
     win.loadFile(indexHtml)
   }

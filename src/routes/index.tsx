@@ -1,12 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import {
-  Zap,
-  Server,
-  Route as RouteIcon,
-  Shield,
-  Waves,
-  Sparkles,
-} from 'lucide-react'
+import { Zap, Code, Smartphone, Rocket } from 'lucide-react'
 
 export const Route = createFileRoute('/')({ component: App })
 
@@ -14,39 +7,27 @@ function App() {
   const features = [
     {
       icon: <Zap className="w-12 h-12 text-cyan-400" />,
-      title: 'Powerful Server Functions',
+      title: 'TanStack Router',
       description:
-        'Write server-side code that seamlessly integrates with your client components. Type-safe, secure, and simple.',
+        'Type-safe routing with excellent developer experience. File-based routing, code splitting, and more.',
     },
     {
-      icon: <Server className="w-12 h-12 text-cyan-400" />,
-      title: 'Flexible Server Side Rendering',
+      icon: <Code className="w-12 h-12 text-cyan-400" />,
+      title: 'React + TypeScript',
       description:
-        'Full-document SSR, streaming, and progressive enhancement out of the box. Control exactly what renders where.',
+        'Built with React 19 and TypeScript for modern, type-safe development.',
     },
     {
-      icon: <RouteIcon className="w-12 h-12 text-cyan-400" />,
-      title: 'API Routes',
+      icon: <Smartphone className="w-12 h-12 text-cyan-400" />,
+      title: 'Desktop & Web',
       description:
-        'Build type-safe API endpoints alongside your application. No separate backend needed.',
+        'Same codebase works as a web app and as an Electron desktop application.',
     },
     {
-      icon: <Shield className="w-12 h-12 text-cyan-400" />,
-      title: 'Strongly Typed Everything',
+      icon: <Rocket className="w-12 h-12 text-cyan-400" />,
+      title: 'Ready to Ship',
       description:
-        'End-to-end type safety from server to client. Catch errors before they reach production.',
-    },
-    {
-      icon: <Waves className="w-12 h-12 text-cyan-400" />,
-      title: 'Full Streaming Support',
-      description:
-        'Stream data from server to client progressively. Perfect for AI applications and real-time updates.',
-    },
-    {
-      icon: <Sparkles className="w-12 h-12 text-cyan-400" />,
-      title: 'Next Generation Ready',
-      description:
-        'Built from the ground up for modern web applications. Deploy anywhere JavaScript runs.',
+        'Pre-configured with Tailwind CSS, Shadcn/ui components, and Electron builder.',
     },
   ]
 
@@ -61,24 +42,23 @@ function App() {
               alt="TanStack Logo"
               className="w-24 h-24 md:w-32 md:h-32"
             />
-            <h1 className="text-6xl md:text-7xl font-black text-white [letter-spacing:-0.08em]">
-              <span className="text-gray-300">TANSTACK</span>{' '}
+            <h1 className="text-5xl md:text-6xl font-black text-white [letter-spacing:-0.08em]">
+              <span className="text-gray-300">ELECTRON +</span>{' '}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                START
+                TANSTACK ROUTER
               </span>
             </h1>
           </div>
           <p className="text-2xl md:text-3xl text-gray-300 mb-4 font-light">
-            The framework for next generation AI applications
+            A modern desktop and web application template
           </p>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-8">
-            Full-stack framework powered by TanStack Router for React and Solid.
-            Build modern applications with server functions, streaming, and type
-            safety.
+            Full-stack SPA powered by TanStack Router for React with Electron
+            desktop support. Build modern applications with type safety.
           </p>
           <div className="flex flex-col items-center gap-4">
             <a
-              href="https://tanstack.com/start"
+              href="https://tanstack.com/router"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-colors shadow-lg shadow-cyan-500/50"
@@ -86,7 +66,7 @@ function App() {
               Documentation
             </a>
             <p className="text-gray-400 text-sm mt-2">
-              Begin your TanStack Start journey by editing{' '}
+              Get started by editing{' '}
               <code className="px-2 py-1 bg-slate-700 rounded text-cyan-400">
                 /src/routes/index.tsx
               </code>
@@ -96,7 +76,7 @@ function App() {
       </section>
 
       <section className="py-16 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
