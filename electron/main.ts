@@ -1,13 +1,16 @@
 import { app, BrowserWindow } from 'electron'
 import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+// Get __dirname equivalent in ES module
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // The built directory structure
 //
 // ├─┬─┬ dist-electron
-// │ │ ├── main
-// │ │ │   └── index.js
-// │ │ └── preload
-// │ │       └── index.js
+// │ │ ├── main.js
+// │ │ └── preload.js
 // │ │
 // │ ├─┬ dist
 // │ │ └── index.html
