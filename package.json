@@ -15,6 +15,51 @@
     "electron:build": "electron-vite build && electron-builder",
     "electron:preview": "electron-vite preview"
   },
+  "build": {
+    "appId": "com.etst.app",
+    "productName": "TanStack Start + Electron",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
+      ],
+      "category": "public.app-category.developer-tools"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Development"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
     "@hookform/resolvers": "^5.2.2",
