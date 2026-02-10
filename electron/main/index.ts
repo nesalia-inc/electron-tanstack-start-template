@@ -21,7 +21,7 @@ let win: BrowserWindow | null = null
 
 const preload = path.join(__dirname, '../preload/index.mjs')
 const isDev = process.env.NODE_ENV === 'development' || process.env.VITE_DEV_SERVER_URL
-const url = 'http://localhost:5173'
+const url = 'http://127.0.0.1:5173'
 const indexHtml = path.join(process.env.DIST, 'index-electron.html')
 
 async function createWindow() {

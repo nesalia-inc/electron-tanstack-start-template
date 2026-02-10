@@ -11,7 +11,7 @@
     "lint": "eslint",
     "format": "prettier",
     "check": "prettier --write . && eslint --fix",
-    "electron:dev": "electron-vite dev",
+    "electron:dev": "cross-env VITE_DEV_SERVER_HOST=127.0.0.1 electron-vite dev --host 127.0.0.1",
     "electron:build": "electron-vite build && electron-builder",
     "electron:preview": "electron-vite preview"
   },
@@ -31,7 +31,9 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ]
     },
@@ -39,7 +41,10 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "category": "public.app-category.developer-tools"
@@ -48,7 +53,9 @@
       "target": [
         {
           "target": "AppImage",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "category": "Development"
@@ -103,6 +110,7 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.0.4",
+    "cross-env": "^10.1.0",
     "electron": "^40.2.1",
     "electron-builder": "^26.7.0",
     "electron-vite": "^5.0.0",
