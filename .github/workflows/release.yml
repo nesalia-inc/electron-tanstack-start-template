@@ -35,8 +35,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Electron app
-        run: pnpm electron:build
+      - name: Build and publish Electron app
+        run: pnpm electron:build --publish always
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -46,6 +46,7 @@ jobs:
         with:
           name: linux-appimage
           path: release/*.AppImage
+          if-no-files-found: warn
 
       - name: Upload artifacts (macOS)
         if: matrix.os == 'macos-latest'
@@ -53,6 +54,7 @@ jobs:
         with:
           name: macos-dmg
           path: release/*.dmg
+          if-no-files-found: warn
 
       - name: Upload artifacts (Windows)
         if: matrix.os == 'windows-latest'
@@ -60,3 +62,4 @@ jobs:
         with:
           name: windows-installer
           path: release/*.{exe,msi}
+          if-no-files-found: warn
