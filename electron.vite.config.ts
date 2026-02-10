@@ -5,12 +5,27 @@ import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 
 export default defineConfig({
   main: {
+    build: {
+      rollupOptions: {
+        input: resolve(__dirname, 'electron/main/index.ts'),
+      },
+    },
     plugins: [externalizeDepsPlugin()],
   },
   preload: {
+    build: {
+      rollupOptions: {
+        input: resolve(__dirname, 'electron/preload/index.ts'),
+      },
+    },
     plugins: [externalizeDepsPlugin()],
   },
   renderer: {
+    build: {
+      rollupOptions: {
+        input: resolve(__dirname, 'index.html'),
+      },
+    },
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
