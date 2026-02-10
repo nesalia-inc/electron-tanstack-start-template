@@ -2,7 +2,7 @@
   "name": "etst",
   "private": true,
   "type": "module",
-  "main": "dist-electron/main/index.js",
+  "main": "dist-electron/main.js",
   "scripts": {
     "dev": "vite dev --port 5555 --host 127.0.0.1",
     "build": "vite build",

@@ -3,6 +3,7 @@ node_modules
 dist
 dist-ssr
 dist-electron
+out
 release
 *.local
 count.txt
