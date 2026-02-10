@@ -21,7 +21,7 @@ let win: BrowserWindow | null = null
 
 const preload = path.join(__dirname, '../preload/index.mjs')
 const isDev = process.env.NODE_ENV === 'development' || process.env.VITE_DEV_SERVER_URL
-const url = 'http://127.0.0.1:5173'
+const url = 'http://localhost:5173'
 const indexHtml = path.join(process.env.DIST, 'index-electron.html')
 
 async function createWindow() {
@@ -37,11 +37,21 @@ async function createWindow() {
     },
   })
 
+  // Open DevTools in development
+  if (isDev) {
+    win.webContents.openDevTools()
+  }
+
   // Development: load from dev server
   // Production: load from built files
   if (isDev) {
-    win.loadURL(url)
-    win.webContents.openDevTools()
+    // Wait a bit for the dev server to be ready
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    win.loadURL(url).catch((err) => {
+      console.error('Failed to load URL:', err)
+      // Fallback to loading the file
+      win?.loadFile(indexHtml)
+    })
   } else {
     win.loadFile(indexHtml)
   }
