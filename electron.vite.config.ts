@@ -1,6 +1,8 @@
 import { resolve } from 'node:path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
+import viteTsConfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
   // Use 127.0.0.1 instead of localhost
@@ -37,7 +39,13 @@ export default defineConfig({
         '@electron': resolve(__dirname, './electron'),
       },
     },
-    plugins: [react()],
+    plugins: [
+      TanStackRouterVite(),
+      react(),
+      viteTsConfigPaths({
+        projects: ['./tsconfig.json'],
+      }),
+    ],
   },
   // Configure output directories
   publicDir: 'public',

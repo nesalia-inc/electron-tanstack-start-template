@@ -20,7 +20,8 @@ process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
 let win: BrowserWindow | null = null
 
 const preload = path.join(__dirname, '../preload/index.mjs')
-const url = process.env.VITE_DEV_SERVER_URL?.replace('localhost', '127.0.0.1')
+const isDev = process.env.NODE_ENV === 'development' || process.env.VITE_DEV_SERVER_URL
+const url = 'http://127.0.0.1:5173'
 const indexHtml = path.join(process.env.DIST, 'index-electron.html')
 
 async function createWindow() {
@@ -38,7 +39,7 @@ async function createWindow() {
 
   // Development: load from dev server
   // Production: load from built files
-  if (process.env.VITE_DEV_SERVER_URL) {
+  if (isDev) {
     win.loadURL(url)
     win.webContents.openDevTools()
   } else {
