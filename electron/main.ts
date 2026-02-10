@@ -12,10 +12,11 @@ const __dirname = path.dirname(__filename)
 // │ │ ├── main.js
 // │ │ └── preload.js
 // │ │
-// │ ├─┬ dist
-// │ │ └── index.html
+// │ ├─┬ .output
+// │ │ └── client
+// │ │     └── index.html
 // │
-process.env.DIST = path.join(__dirname, '../dist')
+process.env.DIST = path.join(__dirname, '../.output/client')
 
 let win: BrowserWindow | null = null
 
