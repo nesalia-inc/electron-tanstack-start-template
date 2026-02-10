@@ -3,12 +3,14 @@ import path from 'node:path'
 
 // The built directory structure
 //
-// ├─┬─┬ dist
-// │ │ └── index.html
+// ├─┬─┬ out
+// │ │ ├── main
+// │ │ │   └── index.js
+// │ │ └── preload
+// │ │       └── index.mjs
 // │ │
-// │ ├─┬ dist-electron
-// │ │ ├── main.js
-// │ │ └── preload.js
+// │ ├─┬ dist
+// │ │ └── index.html
 // │
 process.env.DIST = path.join(__dirname, '../dist')
 process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
@@ -17,7 +19,7 @@ process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
 
 let win: BrowserWindow | null = null
 
-const preload = path.join(__dirname, '../preload/index.js')
+const preload = path.join(__dirname, '../preload/index.mjs')
 const url = process.env.VITE_DEV_SERVER_URL
 const indexHtml = path.join(process.env.DIST, 'index-electron.html')
 

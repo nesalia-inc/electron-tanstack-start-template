@@ -34,4 +34,6 @@ export default defineConfig({
     },
     plugins: [react()],
   },
+  // Configure output directories
+  publicDir: 'public',
 })

@@ -2,7 +2,7 @@
   "name": "etst",
   "private": true,
   "type": "module",
-  "main": "dist-electron/main/index.js",
+  "main": "out/main/index.js",
   "scripts": {
     "dev": "vite dev --port 3000",
     "build": "vite build",
@@ -23,7 +23,7 @@
       "buildResources": "build"
     },
     "files": [
-      "dist-electron/**/*",
+      "out/**/*",
       "dist/**/*",
       "package.json"
     ],
