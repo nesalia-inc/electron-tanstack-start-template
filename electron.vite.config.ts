@@ -3,6 +3,11 @@ import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  // Use 127.0.0.1 instead of localhost
+  server: {
+    host: '127.0.0.1',
+    port: 5173,
+  },
   main: {
     build: {
       rollupOptions: {

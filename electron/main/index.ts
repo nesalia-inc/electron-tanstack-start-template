@@ -20,7 +20,7 @@ process.env.VITE_PUBLIC = process.env.VITE_DEV_SERVER_URL
 let win: BrowserWindow | null = null
 
 const preload = path.join(__dirname, '../preload/index.mjs')
-const url = process.env.VITE_DEV_SERVER_URL
+const url = process.env.VITE_DEV_SERVER_URL?.replace('localhost', '127.0.0.1')
 const indexHtml = path.join(process.env.DIST, 'index-electron.html')
 
 async function createWindow() {
