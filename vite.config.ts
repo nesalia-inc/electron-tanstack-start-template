@@ -26,7 +26,7 @@ const config = defineConfig({
     viteReact(),
     electron([
       {
-        entry: 'electron/main/index.ts',
+        entry: 'electron/main.ts',
         vite: {
           build: {
             outDir: 'dist-electron',
@@ -34,7 +34,7 @@ const config = defineConfig({
         },
       },
       {
-        entry: 'electron/preload/index.ts',
+        entry: 'electron/preload.ts',
         onstart(args) {
           args.reload()
         },
