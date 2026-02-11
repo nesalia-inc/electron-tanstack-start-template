@@ -1,6 +1,6 @@
 {
   "name": "electron-tanstack-start-template",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A modern React template combining TanStack Router for web development with Electron for desktop applications",
   "author": "nesalia-inc",
   "license": "MIT",
