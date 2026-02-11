@@ -1,10 +1,9 @@
-# TanStack Start + Electron Template
+# TanStack Router + Electron Template
 
-A modern full-stack React template combining **TanStack Start** for web development with **Electron** for desktop applications. Built with TypeScript, Tailwind CSS, and Shadcn/ui components.
+A modern React template combining **TanStack Router** for web development with **Electron** for desktop applications. Built with TypeScript, Tailwind CSS, and Shadcn/ui components.
 
-## ✨ Features
+## Features
 
-- **TanStack Start** - Full-stack framework with SSR, streaming, and server functions
 - **TanStack Router** - File-based routing with type-safe navigation
 - **Electron** - Cross-platform desktop app support
 - **vite-plugin-electron** - Seamless Electron integration with Vite
@@ -13,7 +12,7 @@ A modern full-stack React template combining **TanStack Start** for web developm
 - **TypeScript** - End-to-end type safety
 - **React 19** - Latest React features
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -65,7 +64,7 @@ After building, run the packaged Electron app:
 pnpm electron
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 etst/
@@ -86,7 +85,7 @@ etst/
 └── package.json
 ```
 
-## 🛠️ Available Scripts
+## Available Scripts
 
 | Script | Description |
 |--------|-------------|
@@ -100,7 +99,7 @@ etst/
 | `pnpm format` | Format code with Prettier |
 | `pnpm check` | Format and lint all files |
 
-## 🔧 Configuration
+## Configuration
 
 ### Electron
 
@@ -108,13 +107,13 @@ The Electron configuration is handled by `vite-plugin-electron` in `vite.config.
 
 - **Main process**: `electron/main.ts` - Runs in Node.js environment
 - **Preload script**: `electron/preload.ts` - Secure bridge between main and renderer
-- **Renderer**: Uses the same TanStack Start app as web
+- **Renderer**: Uses the same TanStack Router app as web
 
 ### Network Configuration
 
 Both web and Electron development servers run on `127.0.0.1:5555` to avoid network restrictions on localhost.
 
-## 📦 Building for Distribution
+## Building for Distribution
 
 The project uses **electron-builder** for packaging. Configuration is in `package.json` under the `build` field:
 
@@ -124,7 +123,7 @@ The project uses **electron-builder** for packaging. Configuration is in `packag
 
 Build artifacts are created in the `release/` directory.
 
-## 🧪 Testing
+## Testing
 
 This project uses [Vitest](https://vitest.dev/) for testing:
 
@@ -132,7 +131,7 @@ This project uses [Vitest](https://vitest.dev/) for testing:
 pnpm test
 ```
 
-## 🎨 Styling
+## Styling
 
 ### Tailwind CSS
 
@@ -148,7 +147,7 @@ pnpm dlx shadcn@latest add [component-name]
 
 Available components: https://ui.shadcn.com/
 
-## 🚦 Routing
+## Routing
 
 This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are defined in `src/routes/`:
 
@@ -166,9 +165,9 @@ import { Link } from '@tanstack/react-router'
 <Link to="/about">About</Link>
 ```
 
-## 💾 Data Fetching
+## Data Fetching
 
-TanStack Start provides multiple ways to fetch data:
+TanStack Router provides multiple ways to fetch data:
 
 ### Route Loaders
 
@@ -184,22 +183,7 @@ export const Route = createFileRoute('/posts')({
 })
 ```
 
-### Server Functions
-
-Create server functions in `src/routes/` with `.server.ts` extension:
-
-```tsx
-// src/routes/api.posts.server.ts
-import { createServerFn } from '@tanstack/start'
-
-export const getPosts = createServerFn()
-  .handler(async () => {
-    return fetch('https://api.example.com/posts')
-      .then(r => r.json())
-  })
-```
-
-## 🔒 IPC Communication (Electron)
+## IPC Communication (Electron)
 
 The preload script exposes safe IPC methods to the renderer process:
 
@@ -210,21 +194,20 @@ window.electronAPI.on('channel', callback)
 window.electronAPI.invoke('channel', ...args)
 ```
 
-## 📚 Learn More
+## Learn More
 
-- [TanStack Start Documentation](https://tanstack.com/start)
 - [TanStack Router Documentation](https://tanstack.com/router)
 - [Electron Documentation](https://www.electronjs.org/docs)
 - [vite-plugin-electron](https://github.com/electron-vite/vite-plugin-electron)
 
-## 📝 License
+## License
 
 MIT
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-**Built with ❤️ using TanStack Start and Electron**
+Built with TanStack Router and Electron
